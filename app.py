@@ -1,3 +1,4 @@
+from email.mime import application
 from PyQt5.QtCore import QEvent
 import sys
 from random import randint
@@ -5,7 +6,7 @@ from PyQt5.QtWidgets import (QWidget, QApplication,
 QLabel,QPushButton,QMessageBox)
 from Style.style import style
 
-class mouseoverEvent(QWidget):
+class App(QWidget):
     def __init__(self):
         super().__init__()
         self.initUI()
@@ -20,6 +21,7 @@ class mouseoverEvent(QWidget):
         self.btnNo = QPushButton('No',self)
         self.btnNo.setObjectName('btnNo')
         self.btnNo.setGeometry(120, 100, 100, 35)
+        self.btnNo.setEnabled(False)
         self.btnNo.installEventFilter(self)
 
         self.btnYes = QPushButton('Yes',self)
@@ -42,12 +44,12 @@ class mouseoverEvent(QWidget):
 
     def eventFilter(self, object, event):
         if event.type() == QEvent.Enter :
-            self.btnNo.setGeometry(randint(event.y(),self.width-event.x()),
+            self.btnNo.setGeometry(randint(6*event.y(),self.width-event.x()),
             randint(event.x(),self.height-event.y()), 100, 35)
         return False
 
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    ex = mouseoverEvent()
+    application = App()
     sys.exit(app.exec_())
