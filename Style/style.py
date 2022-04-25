@@ -34,11 +34,4 @@ QPushButton#btnNo{
   font-family: Arial;
   font-size: 15px;
 }
-QPushButton#btnNo:pressed {
-  background: #FF2C2C;
-  color:#FFF;
-  border-radius: 25px;
-  font-family: Arial;
-  font-size: 15px;
-}
 """
