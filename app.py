@@ -1,7 +1,8 @@
 from PyQt5.QtCore import QEvent
 import sys
 from random import randint
-from PyQt5.QtWidgets import QWidget, QApplication,QLabel,QPushButton
+from PyQt5.QtWidgets import (QWidget, QApplication,
+QLabel,QPushButton,QMessageBox)
 from Style.style import style
 
 class mouseoverEvent(QWidget):
@@ -24,11 +25,20 @@ class mouseoverEvent(QWidget):
         self.btnYes = QPushButton('Yes',self)
         self.btnYes.setObjectName('btnYes')
         self.btnYes.setGeometry(290, 100, 100, 35)
+        self.btnYes.clicked.connect(lambda: self.getMessage())
         
         self.setStyleSheet(style)
         self.setMinimumSize(self.width, self.height)
         self.setMaximumSize(self.width, self.height)
         self.show()
+    def getMessage(self):
+            message = QMessageBox(self)
+            message.setWindowTitle('Girlfriend')
+            message.setIcon(QMessageBox.Information)
+            message.setText('You are my girlfriend!')  
+            message.exec_()
+
+
 
     def eventFilter(self, object, event):
         if event.type() == QEvent.Enter :
