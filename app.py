@@ -31,12 +31,9 @@ class mouseoverEvent(QWidget):
         self.show()
 
     def eventFilter(self, object, event):
-        if event.type() == QEvent.Enter:
+        if event.type() == QEvent.Enter :
             self.btnNo.setGeometry(randint(event.y(),self.width-event.x()),
             randint(event.x(),self.height-event.y()), 100, 35)
-            
-            
-            return True
         return False
 
 
