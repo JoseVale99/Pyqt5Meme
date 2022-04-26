@@ -1,4 +1,3 @@
-from email.mime import application
 from PyQt5.QtCore import QEvent
 import sys
 from random import randint
@@ -33,6 +32,7 @@ class App(QWidget):
         self.setMinimumSize(self.width, self.height)
         self.setMaximumSize(self.width, self.height)
         self.show()
+    
     def getMessage(self):
             message = QMessageBox(self)
             message.setWindowTitle('Girlfriend')
